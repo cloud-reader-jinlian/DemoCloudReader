@@ -39,14 +39,10 @@ public class ReadCardManager {
             public void onSuccess() {
                 listener.onSuccess();
                 /**
-                 * 启用前端返数据功能，默认为不启用
+                 * 启用前端返数据功能，如需使用此功能需联系我司开通使用权限。
                  */
-                ReadCardManager.eid.setGetDataFromSdk(true);
-                /**
-                 * 启用银联设备sn。需要设备支持sdk4upos_20191225_umix.jar包获取sn的方法。
-                 * sn获取失败会返回错误码。
-                 */
-//                ReadCardManager.eid.setUnionpaySn(MainActivity.this);
+//                ReadCardManager.eid.setGetDataFromSdk(true);
+
                 /**
                  * 启用安卓标准的sn作为设备标识。sn获取方法，
                  */
