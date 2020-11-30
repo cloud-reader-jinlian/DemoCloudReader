@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.eidlink.readcard900"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            variant.outputs.all {
+                outputFileName = rootProject.ext.apkName
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'pub.devrel:easypermissions:3.0.0'
+    /**
+     * 云识读库
+     */
+    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v9.1.8'
+    /**
+     * 图片解码库
+     */
+    implementation 'com.github.cloud-reader-jinlian:cloudreader-picture:v1.0.0'
+}
