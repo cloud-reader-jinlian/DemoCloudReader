@@ -77,4 +77,31 @@ public abstract class BaseActivity extends FragmentActivity implements EasyPermi
         }
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
+    protected ProgressDialog progressDialog;
+
+    protected void showProgressDialog(String msg) {
+        try {
+            if ((!isFinishing()) && (this.progressDialog == null)) {
+                this.progressDialog = new ProgressDialog(this);
+            }
+            this.progressDialog.setMessage(msg);
+            this.progressDialog.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    protected void closeProgressDialog() {
+        try {
+            if (this.progressDialog != null)
+                this.progressDialog.dismiss();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

@@ -41,6 +41,10 @@ public class ReadIDActivity extends BaseNfcActivity {
 
     @Override
     protected void onNfcEvent(Tag tag) {
+        if(ReadCardManager.eid==null){
+            showToast("eid对象为空，请初始化sdk成功后再使用sdk功能。");
+            return;
+        }
         ReadCardManager.eid.readIDCard(tag, mResultListener);
     }
 

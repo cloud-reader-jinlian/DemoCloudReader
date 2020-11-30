@@ -24,7 +24,7 @@ public class ReadCardManager {
      * 端口：9989
      * envCode：26814
      */
-    private static String appid   = "";
+    private static String appid   = "1190807";
     private static String ip      = "testnidocr.eidlink.com";
     private static int    envCode = 26814;
     private static int    port    = 9989;
@@ -33,20 +33,11 @@ public class ReadCardManager {
      * SDK初始化
      * 不进行任何设置，如需设置某些参数，可查看sdk文档。
      */
-    public static void initEid(Context context, final OnEidInitListener listener) {
+    public static void initEid(final Context context, final OnEidInitListener listener) {
         eid = EidLinkSEFactory.getEidLinkSE(new EidlinkInitParams(context, appid, ip, port, envCode), new OnEidInitListener() {
             @Override
             public void onSuccess() {
                 listener.onSuccess();
-                /**
-                 * 启用前端返数据功能，如需使用此功能需联系我司开通使用权限。
-                 */
-//                ReadCardManager.eid.setGetDataFromSdk(true);
-
-                /**
-                 * 启用安卓标准的sn作为设备标识。sn获取方法，
-                 */
-//                ReadCardManager.eid.setDeviceType(1);
             }
 
             @Override

@@ -81,6 +81,10 @@ public class ReadIDEidLinkReadCardCallBackActivity extends BaseNfcActivity {
             nfcB = NfcB.get(tag);
             nfcB.connect();
             if (null != nfcB && nfcB.isConnected()) {
+                if(ReadCardManager.eid==null){
+                    showToast("eid对象为空，请初始化sdk成功后再使用sdk功能。");
+                    return;
+                }
                 ReadCardManager.eid.readIDCard(IDOCRCardType.IDCARD, eidLinkReadCardCallBack, mResultListener);
             }
         } catch (Exception e) {

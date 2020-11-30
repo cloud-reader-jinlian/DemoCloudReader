@@ -35,6 +35,21 @@
                 android:text="读取身份证/eID电子证照" />
 
             <Button
+                android:id="@+id/bt_travel"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="读取旅行证件" />
+
+            <Button
+                android:id="@+id/bt_webEC"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="前端返电子证照" />
+            <Button
                 android:id="@+id/bt_eid_callback_read"
                 android:layout_width="match_parent"
                 android:gravity="center"

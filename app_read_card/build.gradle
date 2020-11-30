@@ -24,12 +24,21 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'pub.devrel:easypermissions:3.0.0'
+    /**
+     * eid-travel-bc-v1.0.0.jar：
+     * 旅行证件拓展库，如需读取旅行证件，需要集成此jar包。 不读取旅行证件可不集成。
+     * eid-mobile-sdk-v3.1.14.6.jar：
+     * 如使用eid认证功能，获取华为钱包eid电子证照功能，需要集成此jar包。
+     */
+    implementation files('libs/eid-travel-bc-v1.0.0.jar')
+    implementation files('libs/eid-mobile-sdk-v3.1.14.6.jar')
+
     /**
      * 云识读库
      */
-    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v9.1.8'
+    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v9.1.9'
     /**
      * 图片解码库
      */
