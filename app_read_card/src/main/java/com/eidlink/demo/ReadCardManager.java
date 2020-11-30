@@ -24,7 +24,7 @@ public class ReadCardManager {
      * 端口：9989
      * envCode：26814
      */
-    private static String appid   = "1190807";
+    private static String appid   = "";
     private static String ip      = "testnidocr.eidlink.com";
     private static int    envCode = 26814;
     private static int    port    = 9989;
