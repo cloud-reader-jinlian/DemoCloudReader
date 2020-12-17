@@ -1,5 +1,6 @@
 package com.eidlink.demo.activity;
 
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,7 +18,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private TextView tv_message, tv_version;
     private Button bt_delay, bt_card, bt_travel, bt_webEC, bt_eid_callback_read;
     private boolean initEidSuccess;
+    private OnEidInitListener mInitListener=new OnEidInitListener() {
+        @Override
+        public void onSuccess() {
+            tv_message.setText("初始化eid成功");
+            initEidSuccess = true;
+        }
 
+        @Override
+        public void onFailed(int i) {
+            tv_message.setText("初始化eid失败，错误码:" + i);
+            initEidSuccess = false;
+        }
+    };
     @Override
     protected int getViewId() {
         return R.layout.activity_main;
@@ -45,19 +58,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private void initEid() {
         initEidSuccess = false;
-        ReadCardManager.initEid(getApplicationContext(), new OnEidInitListener() {
-            @Override
-            public void onSuccess() {
-                tv_message.setText("初始化eid成功");
-                initEidSuccess = true;
-            }
-
-            @Override
-            public void onFailed(int i) {
-                tv_message.setText("初始化eid失败，错误码:" + i);
-                initEidSuccess = false;
-            }
-        });
+        ReadCardManager.initEid(getApplicationContext(),mInitListener);
     }
 
     @Override

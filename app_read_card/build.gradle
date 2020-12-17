@@ -2,7 +2,8 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.eidlink.readcard900"
+//        applicationId "com.eidlink.readcard900"
+        applicationId "com.eidlink.demo"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
@@ -38,7 +39,7 @@ dependencies {
     /**
      * 云识读库
      */
-    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v9.1.9'
+    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v10.0.0'
     /**
      * 图片解码库
      */

@@ -31,12 +31,16 @@ public class ReadCardManager {
 
     /**
      * SDK初始化
-     * 不进行任何设置，如需设置某些参数，可查看sdk文档。
      */
     public static void initEid(final Context context, final OnEidInitListener listener) {
         eid = EidLinkSEFactory.getEidLinkSE(new EidlinkInitParams(context, appid, ip, port, envCode), new OnEidInitListener() {
             @Override
             public void onSuccess() {
+                /**
+                 * 启用安卓标准的sn作为设备标识，默认使用设备imei号。
+                 * 方法介绍请查看sdk文档。
+                 */
+//                eid.setDeviceType(1);
                 listener.onSuccess();
             }
 

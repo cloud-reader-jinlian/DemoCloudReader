@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.eidlink.demo.ReadCardManager;
 import com.eidlink.demo.activity.base.BaseNfcActivity;
+import com.eidlink.idocr.sdk.IDOCRCardType;
 import com.eidlink.idocr.sdk.bean.EidlinkResult;
 import com.eidlink.idocr.sdk.listener.OnGetResultListener;
 import com.eidlink.demo.R;
@@ -45,7 +46,7 @@ public class ReadIDActivity extends BaseNfcActivity {
             showToast("eid对象为空，请初始化sdk成功后再使用sdk功能。");
             return;
         }
-        ReadCardManager.eid.readIDCard(tag, mResultListener);
+        ReadCardManager.eid.readIDCard(IDOCRCardType.IDCARD,tag, mResultListener);
     }
 
     @Override
