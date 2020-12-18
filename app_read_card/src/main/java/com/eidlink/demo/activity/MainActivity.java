@@ -1,6 +1,5 @@
 package com.eidlink.demo.activity;
 
-import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,9 +15,9 @@ import com.eidlink.idocr.sdk.util.DelayUtil;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private TextView tv_message, tv_version;
-    private Button bt_delay, bt_card, bt_travel, bt_webEC, bt_eid_callback_read;
-    private boolean initEidSuccess;
-    private OnEidInitListener mInitListener=new OnEidInitListener() {
+    private Button bt_delay, bt_card, bt_travel, bt_webEC, bt_eidsign, bt_eid_callback_read;
+    private boolean           initEidSuccess;
+    private OnEidInitListener mInitListener = new OnEidInitListener() {
         @Override
         public void onSuccess() {
             tv_message.setText("初始化eid成功");
@@ -31,6 +30,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             initEidSuccess = false;
         }
     };
+
     @Override
     protected int getViewId() {
         return R.layout.activity_main;
@@ -44,12 +44,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         bt_card = findViewById(R.id.bt_card);
         bt_travel = findViewById(R.id.bt_travel);
         bt_webEC = findViewById(R.id.bt_webEC);
+        bt_eidsign = findViewById(R.id.bt_eidsign);
         bt_eid_callback_read = findViewById(R.id.bt_eid_callback_read);
         bt_card.setOnClickListener(this);
         bt_travel.setOnClickListener(this);
         bt_webEC.setOnClickListener(this);
         bt_eid_callback_read.setOnClickListener(this);
         bt_delay.setOnClickListener(this);
+        bt_eidsign.setOnClickListener(this);
         tv_version.setText("SDK版本:" + EidLinkSESDK.getSDKVersion());
         //请求动态权限，读写sd卡权限和读取手机号状态权限
         requestPermissions();
@@ -58,7 +60,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private void initEid() {
         initEidSuccess = false;
-        ReadCardManager.initEid(getApplicationContext(),mInitListener);
+        ReadCardManager.initEid(getApplicationContext(), mInitListener);
     }
 
     @Override
@@ -110,7 +112,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     showToast("请初始化sdk成功后再使用sdk功能。");
                     return;
                 }
-                if(ReadCardManager.eid==null){
+                if (ReadCardManager.eid == null) {
                     showToast("eid对象为空，请初始化sdk成功后再使用sdk功能。");
                     return;
                 }
@@ -120,6 +122,30 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     public void isOpened() {
                         closeProgressDialog();
                         startActivityNoFinish(ReadWalletECActivity.class);
+                    }
+
+                    @Override
+                    public void onFailed(int i) {
+                        closeProgressDialog();
+                        showToast("手机没有开通eid");
+                    }
+                });
+                break;
+            case R.id.bt_eidsign:
+                if (!initEidSuccess) {
+                    showToast("请初始化sdk成功后再使用sdk功能。");
+                    return;
+                }
+                if (ReadCardManager.eid == null) {
+                    showToast("eid对象为空，请初始化sdk成功后再使用sdk功能。");
+                    return;
+                }
+                showProgressDialog("检测eID是否开通,请稍候...");
+                ReadCardManager.eid.eidIsOpen(this, new OnGetEidStatusListener() {
+                    @Override
+                    public void isOpened() {
+                        closeProgressDialog();
+                        startActivityNoFinish(EIDSignActivity.class);
                     }
 
                     @Override

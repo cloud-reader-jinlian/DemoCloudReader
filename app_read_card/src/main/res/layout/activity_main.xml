@@ -50,6 +50,13 @@
                 android:layout_marginBottom="10dp"
                 android:text="前端返电子证照" />
             <Button
+                android:id="@+id/bt_eidsign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="eID签名认证" />
+            <Button
                 android:id="@+id/bt_eid_callback_read"
                 android:layout_width="match_parent"
                 android:gravity="center"
