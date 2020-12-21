@@ -46,7 +46,24 @@ public class ReadIDActivity extends BaseNfcActivity {
             showToast("eid对象为空，请初始化sdk成功后再使用sdk功能。");
             return;
         }
-        ReadCardManager.eid.readIDCard(IDOCRCardType.IDCARD,tag, mResultListener);
+        /**
+         * ReadCardManager.eid.readIDCard(tag, mResultListener);
+         * 通用模式，同时支持二代证读取和eID电子证照读取
+         */
+
+        ReadCardManager.eid.readIDCard(tag, mResultListener);
+
+        /**
+         * ReadCardManager.eid.readIDCard(IDOCRCardType.IDCARD,tag, mResultListener);
+         * 设置只支持二代证读取
+         */
+//        ReadCardManager.eid.readIDCard(IDOCRCardType.IDCARD,tag, mResultListener);
+
+        /**
+         * ReadCardManager.eid.readIDCard(IDOCRCardType.ECCARD,tag, mResultListener);
+         * 设置只支持eID电子证照读取
+         */
+//        ReadCardManager.eid.readIDCard(IDOCRCardType.ECCARD,tag, mResultListener);
     }
 
     @Override
