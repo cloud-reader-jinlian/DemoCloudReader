@@ -1,0 +1,9 @@
+SDK：包含jar和so库
+权限：AndroidManifest.xml中配置权限都是必须的
+依赖：如果需求读取旅行证件，需导入bcprov-jdk15on-1.59.jar
+前端返电子证照功能目前只支持华为手机
+判断手机是否开通eID证件具体方法见SDK文档
+Demo主要是演示SDK方法和简单NFC实现，具体集成SDK，需根据相关业务使用。
+
+
+

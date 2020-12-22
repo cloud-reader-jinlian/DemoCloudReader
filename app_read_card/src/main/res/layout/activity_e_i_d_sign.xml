@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".activity.EIDSignActivity">
+
+    <TextView android:id="@+id/tv_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="50dp"
+        android:textIsSelectable="true"
+        android:text="信息显示"/>
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:hint="请输入姓名"
+        android:textColor="#333"
+        android:textSize="17sp"
+        />
+    <EditText
+        android:id="@+id/et_idnum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:hint="请输入身份证号"
+        android:textColor="#333"
+        android:textSize="17sp"
+        />
+
+    <Button android:id="@+id/bt_sign"
+        android:layout_width="200dp"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="eID匿名签名"/>
+    <Button android:id="@+id/bt_sign_user"
+        android:layout_width="200dp"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="eID实人签名"/>
+    <Button android:id="@+id/bt_auth"
+        android:layout_width="200dp"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="eID匿名认证"/>
+    <Button android:id="@+id/bt_auth_user"
+        android:layout_width="200dp"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="eID实名认证"/>
+</LinearLayout>
