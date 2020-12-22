@@ -42,7 +42,7 @@ public class ReadCardManager {
                  */
 //                eid.setDeviceType(1);
                 /**
-                 * 设置sdk自动重读2次。
+                 * 设置sdk自动重读次数为2次。
                  */
                 eid.setReadCount(2);
                 listener.onSuccess();
