@@ -27,7 +27,7 @@
         tools:ignore="UnusedAttribute">
         <activity
             android:name="com.eidlink.demo.activity.ReadWalletECActivity"
-            android:label="前端返电子证照"
+            android:label="获取本机eid电子证照"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
@@ -41,17 +41,27 @@
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
+            android:name=".activity.EidFunActivity"
+            android:label="eid功能演示界面"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
             android:name=".activity.EIDSignActivity"
-            android:label="读取身份证"
+            android:label="eid签名功能"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.eidlink.demo.activity.ReadIDEidLinkReadCardCallBackActivity"
-            android:label="读取身份证"
+            android:name=".activity.ReadIDEidLinkReadCardCallBackActivity"
+            android:label="回调方式读卡"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.eidlink.demo.activity.MainActivity"
+            android:name=".activity.DeviceSettingActivity"
+            android:label="包终端配置项"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".activity.MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>

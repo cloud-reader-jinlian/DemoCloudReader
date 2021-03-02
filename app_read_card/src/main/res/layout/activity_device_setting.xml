@@ -17,55 +17,36 @@
             android:layout_marginRight="15dp"
             android:orientation="vertical">
             <EditText
-                android:id="@+id/tv_message"
+                android:id="@+id/et_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:text="实证SDK" />
+                android:text="云解码SDK" />
 
             <Button
-                android:id="@+id/bt_card"
+                android:id="@+id/bt_set_imei"
                 android:layout_width="match_parent"
                 android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:textAllCaps="false"
-                android:text="NFC读取身份证/eID电子证照" />
+                android:text="启用imei号作为包终端配置" />
 
             <Button
-                android:id="@+id/bt_webEC"
+                android:id="@+id/bt_set_sn"
                 android:layout_width="match_parent"
                 android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="获取本机eID电子证照" />
-
+                android:text="启用sn号作为包终端配置" />
             <Button
-                android:id="@+id/bt_travel"
+                android:id="@+id/bt_set_no"
                 android:layout_width="match_parent"
                 android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="读取旅行证件" />
-
-            <Button
-                android:id="@+id/bt_eid_fun"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:text="点击查看eID功能列表" />
-
-            <Button
-                android:id="@+id/bt_eid_callback_read"
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:textAllCaps="false"
-                android:text="指令下发方式读卡，主要用于非接设备适配" />
+                android:text="不使用包终端配置" />
 
             <Button
                 android:id="@+id/bt_get_imei"
@@ -73,23 +54,22 @@
                 android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="点击查看包终端配置项"/>
+                android:text="点击获取设备imei号" />
 
             <Button
-                android:id="@+id/bt_delay"
+                android:id="@+id/bt_get_sn"
                 android:layout_width="match_parent"
                 android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="时延测试" />
-
+                android:text="点击获取设备sn号" />
             <TextView
-                android:id="@+id/tv_version"
+                android:id="@+id/tv_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

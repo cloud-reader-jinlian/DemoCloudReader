@@ -10,6 +10,9 @@ import com.eidlink.demo.activity.base.BaseActivity;
 import com.eidlink.idocr.sdk.bean.EidlinkResult;
 import com.eidlink.idocr.sdk.listener.OnGetResultListener;
 
+/**
+ * eID签名功能。
+ */
 @SuppressLint("SetTextI18n")
 public class EIDSignActivity extends BaseActivity implements View.OnClickListener {
 

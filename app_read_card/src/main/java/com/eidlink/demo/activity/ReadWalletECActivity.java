@@ -11,7 +11,7 @@ import com.eidlink.idocr.sdk.bean.EidlinkResult;
 import com.eidlink.idocr.sdk.listener.OnGetResultListener;
 
 /**
- * 前端返电子证照
+ * 获取本机eID电子证照
  * 调起本机钱包的中eID证件，目前只支持华为钱包
  * 此方法调用钱包多为异步调用，所以其中有请求时间限制，如长时间无操作，可能会导致失败
  */
@@ -23,7 +23,7 @@ public class ReadWalletECActivity extends BaseActivity {
     /**
      * DataToBeDisplayed  调起钱包是显示的文字(最多70个可见字符)
      */
-    public static String DataToBeDisplayed = "金联汇通测试";
+    public static String DataToBeDisplayed = "金联汇通测试获取电子证照";
 
     @Override
     protected void initEvent() {

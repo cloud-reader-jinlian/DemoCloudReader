@@ -15,7 +15,8 @@ import com.eidlink.idocr.sdk.listener.OnGetResultListener;
 
 /**
  * 读取旅行证件
- * SDK次功能需依赖bcprov-jdk15on-1.59.jar
+ * SDK次功能需依赖eid-travel-bc-v1.0.0.jar
+ * IDOCR.PubSdk.Android.Std.NFC.Release-10.2.2.jar
  */
 public class ReadTravelActivity extends BaseNfcActivity {
     private EditText et_num, et_birth, et_validity;
@@ -33,9 +34,6 @@ public class ReadTravelActivity extends BaseNfcActivity {
         et_validity = this.findViewById(R.id.et_validity);
         tb = this.findViewById(R.id.tb);
         initClick();
-        et_num.setText("E47378331");
-        et_birth.setText("830402");
-        et_validity.setText("250329");
     }
 
     @Override

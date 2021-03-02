@@ -9,18 +9,10 @@ import android.widget.ImageView;
 
 import com.eidlink.demo.ReadCardManager;
 import com.eidlink.demo.activity.base.BaseNfcActivity;
-import com.eidlink.idocr.sdk.IDOCRCardType;
 import com.eidlink.idocr.sdk.bean.EidlinkResult;
 import com.eidlink.idocr.sdk.listener.OnGetResultListener;
 import com.eidlink.demo.R;
 import com.zkteco.android.IDReader.IDCardPhoto;
-
-/**
- * 读取身份证
- * NFC读卡直接贴卡
- * 注意事项: AndroidManifest.xml中所有权限都必须添加
- * targetSdkVersion大于29的时候，清单文件要添加 android:requestLegacyExternalStorage="true" 属性
- */
 
 public class ReadIDActivity extends BaseNfcActivity {
 

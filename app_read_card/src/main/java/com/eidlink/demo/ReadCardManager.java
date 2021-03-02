@@ -12,7 +12,7 @@ public class ReadCardManager {
     /**
      * 生产环境配置：
      * appid:请填写生产环境分配的appid
-     * 生产环境ip：idocrap.eidlink.com
+     * 生产环境ip：eidcloudread.eidlink.com
      * 端口：9989
      * envCode：52302
      */
@@ -20,12 +20,12 @@ public class ReadCardManager {
     /**
      * 测试环境配置：
      * appid:请填写测试环境分配的appid
-     * 测试环境ip：testnidocr.eidlink.com
+     * 测试环境ip：testeidcloudread.eidlink.com
      * 端口：9989
      * envCode：26814
      */
     private static String appid   = "";
-    private static String ip      = "testnidocr.eidlink.com";
+    private static String ip      = "testeidcloudread.eidlink.com";
     private static int    envCode = 26814;
     private static int    port    = 9989;
 
@@ -37,10 +37,10 @@ public class ReadCardManager {
             @Override
             public void onSuccess() {
                 /**
-                 * 启用安卓标准的sn作为设备标识，默认使用设备imei号。
+                 * 启用前端返数据功能,目前仅支持二代证读取。
                  * 方法介绍请查看sdk文档。
                  */
-//                eid.setDeviceType(1);
+                eid.setGetDataFromSdk(true);
                 /**
                  * 设置sdk自动重读次数为2次。
                  */

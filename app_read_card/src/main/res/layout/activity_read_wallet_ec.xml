@@ -13,13 +13,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="前端返电子证照,目前只支持华为钱包电子证照"/>
+        android:gravity="center"
+        android:text="目前只支持华为钱包电子证照"/>
 
     <Button android:id="@+id/okbtn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="前端返电子证照"/>
+        android:text="获取本机eID电子证照"/>
+
     <TextView android:id="@+id/tv_msg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

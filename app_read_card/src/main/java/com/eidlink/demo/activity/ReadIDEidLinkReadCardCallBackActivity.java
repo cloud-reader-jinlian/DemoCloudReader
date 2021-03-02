@@ -16,9 +16,17 @@ import com.eidlink.idocr.sdk.listener.OnGetResultListener;
 import java.io.IOException;
 
 /**
- * 演示EidLinkReadCardCallBack回调方式读卡
- * 适用于身份证，eid电子证照，护照，蓝牙读卡器适配等
+ * 演示EidLinkReadCardCallBack指令下发方式读卡。
+ * 适用于身份证，eid电子证照，护照，蓝牙读卡器等功能。
+ * 以指令下发的方式实现读卡，客户可以使用第三方设备，通过设备非接接口透传sdk下发的读卡指令，最终完成读卡。
  * 此类中演示以身份证为例。
+ * eidLinkReadCardCallBack下发指令，演示Demo使用安卓接口nfcB.transceive(bytes)完成指令和卡片的交互。
+ * 第三方设备适配步骤：
+ * 1、实现IC卡寻卡激活。
+ * 2、激活卡片后，调用我方sdk读卡方法。
+ * 3、收到EidLinkReadCardCallBack下发的读卡指令，通过设备非接接口透传给卡片，最终完成读卡。
+ * 4、读卡成功，sdk会返回查询的reqId，读卡失败会返回具体错误码。
+ * 第三方设备非接接口，需要设备厂商提供，可咨询厂商如何实现读卡指令和卡片的交互。
  */
 public class ReadIDEidLinkReadCardCallBackActivity extends BaseNfcActivity {
 

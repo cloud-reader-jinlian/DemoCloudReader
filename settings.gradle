@@ -1,1 +1,1 @@
-include ':app_read_card'
+include ':app_read_card', ':lib_shizheng'

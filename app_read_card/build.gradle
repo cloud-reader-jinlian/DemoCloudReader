@@ -29,16 +29,21 @@ dependencies {
     /**
      * eid-travel-bc-v1.0.0.jar：
      * 旅行证件拓展库，如需读取旅行证件，需要集成此jar包。 不读取旅行证件可不集成。
-     * eid-mobile-sdk-v3.1.14.6.jar：
+     * eid-mobile-sdk-v3.1.15.5.jar：
      * 如使用eid认证功能，获取华为钱包eid电子证照功能，需要集成此jar包。
      */
     implementation files('libs/eid-travel-bc-v1.0.0.jar')
-    implementation files('libs/eid-mobile-sdk-v3.1.14.6.jar')
+    implementation files('libs/eid-mobile-sdk-v3.1.15.5.jar')
 
     /**
-     * 云识读库
+     * 1、使用云识读远程库，方便客户集成：com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.1。
+     * 2、也可以选择使用云识读本地jar包和动态库：lib_shizheng。
      */
-    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v10.0.1'
+    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.2'
+
+//    implementation files('libs/IDOCR.PubSdk.Android.Std.NFC.Release-10.2.2.jar')
+//    implementation project(':lib_shizheng')
+
     /**
      * 图片解码库
      */

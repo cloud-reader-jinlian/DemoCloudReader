@@ -36,7 +36,7 @@ public abstract class BaseActivity extends FragmentActivity implements EasyPermi
      * 去申请权限
      */
     protected void requestPermissions() {
-        String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE};
+        String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
         if (EasyPermissions.hasPermissions(this, perms)) {
         } else {
             EasyPermissions.requestPermissions(this, "如无权限可能导致读取失败", 81, perms);
@@ -51,6 +51,7 @@ public abstract class BaseActivity extends FragmentActivity implements EasyPermi
      */
     @Override
     public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+
     }
 
     /**
@@ -61,8 +62,7 @@ public abstract class BaseActivity extends FragmentActivity implements EasyPermi
      */
     @Override
     public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
-        showToast("无所需权限,请在设置中添加权限");
-        finish();
+        showToast("获取读写sdk卡权限失败。");
     }
 
     public void startActivityNoFinish(Class<?> cls) {
