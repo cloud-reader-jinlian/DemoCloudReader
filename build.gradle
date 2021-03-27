@@ -22,7 +22,7 @@ allprojects {
         targetSdkVersion = 29
         minSdkVersion = 22
         versionCode = 1
-        versionName = "10.0.3"
+        versionName = "10.2.2"
         apkName = "读卡"+versionName+"_Demo.apk"
     }
 }

@@ -18,7 +18,6 @@ public class ReadIDActivity extends BaseNfcActivity {
 
     private EditText  tv_msg;
     private ImageView iv_image;
-
     private long starttime, endtime;
 
     @Override

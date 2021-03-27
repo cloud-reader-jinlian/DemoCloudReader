@@ -1,7 +1,9 @@
 package com.eidlink.demo;
 
 import android.content.Context;
+import android.text.TextUtils;
 
+import com.eidlink.demo.activity.utils.SpUtils;
 import com.eidlink.idocr.sdk.EidLinkSE;
 import com.eidlink.idocr.sdk.EidLinkSEFactory;
 import com.eidlink.idocr.sdk.bean.EidlinkInitParams;
@@ -24,7 +26,7 @@ public class ReadCardManager {
      * 端口：9989
      * envCode：26814
      */
-    private static String appid   = "";
+    public static  String appid;
     private static String ip      = "testeidcloudread.eidlink.com";
     private static int    envCode = 26814;
     private static int    port    = 9989;
@@ -33,6 +35,9 @@ public class ReadCardManager {
      * SDK初始化
      */
     public static void initEid(final Context context, final OnEidInitListener listener) {
+        if (TextUtils.isEmpty(appid)) {
+            appid = SpUtils.getAppid(context);
+        }
         eid = EidLinkSEFactory.getEidLinkSE(new EidlinkInitParams(context, appid, ip, port, envCode), new OnEidInitListener() {
             @Override
             public void onSuccess() {

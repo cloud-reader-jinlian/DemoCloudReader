@@ -1,5 +1,6 @@
 package com.eidlink.demo.activity;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import com.eidlink.demo.R;
 import com.eidlink.demo.ReadCardManager;
 import com.eidlink.demo.activity.base.BaseActivity;
+import com.eidlink.demo.activity.utils.SpUtils;
 import com.eidlink.idocr.sdk.EidLinkSESDK;
 import com.eidlink.idocr.sdk.listener.OnEidInitListener;
 import com.eidlink.idocr.sdk.listener.OnGetDelayListener;
@@ -15,20 +17,20 @@ import com.eidlink.idocr.sdk.listener.OnGetEidStatusListener;
 import com.eidlink.idocr.sdk.util.DelayUtil;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
-    private EditText tv_message;
+    private EditText et_message;
     private TextView tv_version;
-    private Button   bt_get_imei, bt_delay, bt_card, bt_travel, bt_webEC, bt_eid_fun, bt_eid_callback_read;
+    private Button   bt_clear, bt_save, bt_get_imei, bt_delay, bt_card, bt_travel, bt_webEC, bt_eid_fun, bt_eid_callback_read;
     private boolean           initEidSuccess;
     private OnEidInitListener mInitListener = new OnEidInitListener() {
         @Override
         public void onSuccess() {
-            tv_message.setText("初始化eid成功");
+            et_message.setText("初始化成功,当前账号:" + ReadCardManager.appid);
             initEidSuccess = true;
         }
 
         @Override
         public void onFailed(int i) {
-            tv_message.setText("初始化eid失败，错误码:" + i);
+            et_message.setText("初始化eid失败，错误码:" + i);
             initEidSuccess = false;
         }
     };
@@ -40,7 +42,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initEvent() {
-        tv_message = findViewById(R.id.tv_message);
+        et_message = findViewById(R.id.et_message);
         tv_version = findViewById(R.id.tv_version);
         bt_delay = findViewById(R.id.bt_delay);
         bt_card = findViewById(R.id.bt_card);
@@ -49,6 +51,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         bt_eid_fun = findViewById(R.id.bt_eid_fun);
         bt_eid_callback_read = findViewById(R.id.bt_eid_callback_read);
         bt_get_imei = findViewById(R.id.bt_get_imei);
+        bt_save = findViewById(R.id.bt_save);
+        bt_clear = findViewById(R.id.bt_clear);
         bt_card.setOnClickListener(this);
         bt_travel.setOnClickListener(this);
         bt_webEC.setOnClickListener(this);
@@ -56,6 +60,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         bt_delay.setOnClickListener(this);
         bt_eid_fun.setOnClickListener(this);
         bt_get_imei.setOnClickListener(this);
+        bt_save.setOnClickListener(this);
+        bt_clear.setOnClickListener(this);
         tv_version.setText("SDK版本:" + EidLinkSESDK.getSDKVersion());
         //请求动态权限，读写sd卡权限和读取手机号状态权限
 //        bt_travel.setVisibility(View.GONE);
@@ -65,7 +71,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //        bt_eidsign.setVisibility(View.GONE);
 //        bt_eid_callback_read.setVisibility(View.GONE);
         requestPermissions();
-        initEid();
+
+
+        if (!TextUtils.isEmpty(ReadCardManager.appid)) {
+            et_message.setText(ReadCardManager.appid);
+            initEid();
+            return;
+        }
+
+        //如果appid没有设置,就获取上一次保存的appid
+        if (!TextUtils.isEmpty(SpUtils.getAppid(getApplicationContext()))) {
+            et_message.setText(SpUtils.getAppid(getApplicationContext()));
+            initEid();
+        }
     }
 
     private void initEid() {
@@ -76,6 +94,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.bt_save:
+                if (initEidSuccess){
+                    showToast("请清除账号后再重新配置账号");
+                    return;
+                }
+                String appid = et_message.getText().toString().trim();
+                if (TextUtils.isEmpty(appid)) {
+                    showToast("请填写cid或appid后再点击保存按钮。");
+                    return;
+                }
+                SpUtils.setAppid(getApplicationContext(), appid);
+                initEid();
+                break;
+            case R.id.bt_clear:
+                SpUtils.clear(getApplicationContext());
+                ReadCardManager.appid = null;
+                initEidSuccess=false;
+                et_message.setText("");
+                break;
             case R.id.bt_delay:
                 if (!initEidSuccess) {
                     showToast("请初始化sdk成功后再使用sdk功能。");
@@ -86,13 +123,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     @Override
                     public void onSuccess(long delayTime) {
                         bt_delay.setEnabled(true);
-                        tv_message.setText("时延:" + delayTime + "ms");
+                        et_message.setText("时延:" + delayTime + "ms");
                     }
 
                     @Override
                     public void onFailed(int code) {
                         bt_delay.setEnabled(true);
-                        tv_message.setText("时延测试错误，错误信息:" + code);
+                        et_message.setText("时延测试错误，错误信息:" + code);
                     }
                 });
                 break;
