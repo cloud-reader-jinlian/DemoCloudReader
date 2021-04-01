@@ -134,10 +134,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 });
                 break;
             case R.id.bt_card:
-                if (!initEidSuccess) {
-                    showToast("请初始化sdk成功后再使用sdk功能。");
-                    return;
-                }
+//                if (!initEidSuccess) {
+//                    showToast("请初始化sdk成功后再使用sdk功能。");
+//                    return;
+//                }
                 startActivityNoFinish(ReadIDActivity.class);
                 break;
             case R.id.bt_travel:

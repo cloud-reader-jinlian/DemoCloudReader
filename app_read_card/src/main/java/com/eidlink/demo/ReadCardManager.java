@@ -41,15 +41,9 @@ public class ReadCardManager {
         eid = EidLinkSEFactory.getEidLinkSE(new EidlinkInitParams(context, appid, ip, port, envCode), new OnEidInitListener() {
             @Override
             public void onSuccess() {
-                /**
-                 * 启用前端返数据功能,目前仅支持二代证读取。
-                 * 方法介绍请查看sdk文档。
-                 * 如需使用前端返数据功能，需联系我司开通使用授权。
-                 */
-//                eid.setGetDataFromSdk(true);
-                /**
-                 * 设置sdk自动重读次数为2次。
-                 */
+                //setGetDataFromSdk:启用前端返数据功能,目前仅支持二代证读取.如需使用前端返数据功能，需联系我司开通使用授权。
+                eid.setGetDataFromSdk(true);
+                //setReadCount:设置sdk自动重读次数为2次。
                 eid.setReadCount(2);
                 listener.onSuccess();
             }

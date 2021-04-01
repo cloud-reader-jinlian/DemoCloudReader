@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.eidlink.demo_ceshi"
+        applicationId "com.eidlink.demo"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
@@ -36,16 +36,16 @@ dependencies {
     implementation files('libs/eid-mobile-sdk-v3.1.15.5.jar')
 
     /**
-     * 1、使用云识读远程库，方便客户集成：com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.1。
+     * 1、使用云识读远程库，方便客户集成：com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.2。
      * 2、也可以选择使用云识读本地jar包和动态库：lib_shizheng。
      */
-    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.2'
+//    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.2'
 
-//    implementation files('libs/IDOCR.PubSdk.Android.Std.NFC.Release-10.2.2.jar')
-//    implementation project(':lib_shizheng')
+    implementation files('libs/IDOCR.PubSdk.Android.Std.NFC.Release-10.2.4.jar')
+    implementation project(':lib_shizheng')
 
     /**
-     * 图片解码库
+     * 二代证电子照片解码库
      */
     implementation 'com.github.cloud-reader-jinlian:cloudreader-picture:v1.0.0'
 }
