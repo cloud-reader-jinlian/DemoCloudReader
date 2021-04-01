@@ -1,11 +1,13 @@
 package com.eidlink.demo.activity;
 
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.eidlink.bluetooth.activity.BlueToothActivity;
 import com.eidlink.demo.R;
 import com.eidlink.demo.ReadCardManager;
 import com.eidlink.demo.activity.base.BaseActivity;
@@ -15,11 +17,10 @@ import com.eidlink.idocr.sdk.listener.OnEidInitListener;
 import com.eidlink.idocr.sdk.listener.OnGetDelayListener;
 import com.eidlink.idocr.sdk.listener.OnGetEidStatusListener;
 import com.eidlink.idocr.sdk.util.DelayUtil;
-
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private EditText et_message;
     private TextView tv_version;
-    private Button   bt_clear, bt_save, bt_get_imei, bt_delay, bt_card, bt_travel, bt_webEC, bt_eid_fun, bt_eid_callback_read;
+    private Button   bt_clear, bt_save, bt_get_imei, bt_delay, bt_card, bt_travel, bt_webEC, bt_eid_fun, bt_eid_callback_read,bt_bluetooth;
     private boolean           initEidSuccess;
     private OnEidInitListener mInitListener = new OnEidInitListener() {
         @Override
@@ -53,6 +54,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         bt_get_imei = findViewById(R.id.bt_get_imei);
         bt_save = findViewById(R.id.bt_save);
         bt_clear = findViewById(R.id.bt_clear);
+        bt_bluetooth = findViewById(R.id.bt_bluetooth);
         bt_card.setOnClickListener(this);
         bt_travel.setOnClickListener(this);
         bt_webEC.setOnClickListener(this);
@@ -62,6 +64,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         bt_get_imei.setOnClickListener(this);
         bt_save.setOnClickListener(this);
         bt_clear.setOnClickListener(this);
+        bt_bluetooth.setOnClickListener(this);
         tv_version.setText("SDK版本:" + EidLinkSESDK.getSDKVersion());
         //请求动态权限，读写sd卡权限和读取手机号状态权限
 //        bt_travel.setVisibility(View.GONE);
@@ -153,6 +156,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     return;
                 }
                 startActivityNoFinish(ReadIDEidLinkReadCardCallBackActivity.class);
+                break;
+            case R.id.bt_bluetooth:
+                Intent intent =  new Intent(this, BlueToothActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("appid",ReadCardManager.appid);
+                intent.putExtra("ip",ReadCardManager.ip);
+                intent.putExtra("port",ReadCardManager.port+"");
+                intent.putExtra("envCode",ReadCardManager.envCode+"");
+                startActivity(intent);
                 break;
             case R.id.bt_webEC:
                 if (!initEidSuccess) {

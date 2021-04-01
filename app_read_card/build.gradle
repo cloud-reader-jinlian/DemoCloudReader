@@ -48,4 +48,5 @@ dependencies {
      * 二代证电子照片解码库
      */
     implementation 'com.github.cloud-reader-jinlian:cloudreader-picture:v1.0.0'
+    implementation project(path: ':lib_cloud_reader_bt')
 }

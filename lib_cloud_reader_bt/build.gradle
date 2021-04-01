@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'pub.devrel:easypermissions:3.0.0'
+    /**
+     * 云识读库
+     */
+    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.2'
+    /**
+     * 蓝牙读卡器库
+     */
+    implementation files('libs/IDOCR.PubSdk.Android.More.BT.Release-2.3.2.jar')
+    implementation files('libs/fastble.jar')
+}
