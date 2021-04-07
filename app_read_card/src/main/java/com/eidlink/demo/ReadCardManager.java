@@ -27,9 +27,9 @@ public class ReadCardManager {
      * envCode：26814
      */
     public static  String appid;
-    private static String ip      = "testeidcloudread.eidlink.com";
-    private static int    envCode = 26814;
-    private static int    port    = 9989;
+    public static String ip      = "testeidcloudread.eidlink.com";
+    public static int    envCode = 26814;
+    public static int    port    = 9989;
 
     /**
      * SDK初始化

@@ -1,1 +1,1 @@
-include ':app_read_card', ':lib_shizheng'
+include ':app_read_card', ':lib_shizheng',  ':lib_cloud_reader_bt'

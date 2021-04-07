@@ -16,53 +16,66 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:orientation="vertical">
+
             <EditText
                 android:id="@+id/et_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
+                android:gravity="center"
                 android:hint="请填写分配的cid或appid" />
+
             <Button
                 android:id="@+id/bt_save"
                 android:layout_width="match_parent"
-                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:textAllCaps="false"
-                android:text="保存配置" />
+                android:gravity="center"
+                android:text="保存配置"
+                android:textAllCaps="false" />
+
             <Button
                 android:id="@+id/bt_clear"
                 android:layout_width="match_parent"
-                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:textAllCaps="false"
-                android:text="清除账号配置" />
+                android:gravity="center"
+                android:text="清除账号配置"
+                android:textAllCaps="false" />
+
             <Button
                 android:id="@+id/bt_card"
                 android:layout_width="match_parent"
-                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:textAllCaps="false"
-                android:text="NFC读取身份证/eID电子证照" />
+                android:gravity="center"
+                android:text="NFC读取身份证/eID电子证照"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/bt_bluetooth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="使用我方蓝牙读卡器读证"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/bt_webEC"
                 android:layout_width="match_parent"
-                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:gravity="center"
                 android:text="获取本机eID电子证照" />
 
             <Button
                 android:id="@+id/bt_travel"
                 android:layout_width="match_parent"
-                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:gravity="center"
                 android:text="读取旅行证件" />
 
             <Button
@@ -76,35 +89,35 @@
             <Button
                 android:id="@+id/bt_eid_callback_read"
                 android:layout_width="match_parent"
-                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:textAllCaps="false"
-                android:text="指令下发方式读卡，主要用于非接设备适配" />
+                android:gravity="center"
+                android:text="指令下发方式读卡，主要用于非接设备适配"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/bt_get_imei"
                 android:layout_width="match_parent"
-                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="点击查看包终端配置项"/>
+                android:gravity="center"
+                android:text="点击查看包终端配置项" />
 
             <Button
                 android:id="@+id/bt_delay"
                 android:layout_width="match_parent"
-                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:gravity="center"
                 android:text="时延测试" />
 
             <TextView
                 android:id="@+id/tv_version"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:gravity="center" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
