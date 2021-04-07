@@ -22,7 +22,7 @@ dependencies {
     /**
      * 云识读库
      */
-    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.2'
+    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.4'
     /**
      * 蓝牙读卡器库
      */

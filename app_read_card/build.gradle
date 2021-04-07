@@ -39,8 +39,7 @@ dependencies {
      * 1、使用云识读远程库，方便客户集成：com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.4。
      * 2、也可以选择使用云识读本地jar包和动态库：lib_shizheng。
      */
-//    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.4'
-    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.2'
+    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.4'
 
 //    implementation files('libs/IDOCR.PubSdk.Android.Std.NFC.Release-10.2.4.jar')
 //    implementation project(':lib_shizheng')
