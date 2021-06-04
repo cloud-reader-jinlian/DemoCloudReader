@@ -16,7 +16,7 @@ import com.zkteco.android.IDReader.IDCardPhoto;
 
 public class ReadIDActivity extends BaseNfcActivity {
 
-    private EditText  tv_msg;
+    private EditText tv_msg;
     private ImageView iv_image;
     private long starttime, endtime;
 
@@ -33,7 +33,7 @@ public class ReadIDActivity extends BaseNfcActivity {
 
     @Override
     protected void onNfcEvent(Tag tag) {
-        if(ReadCardManager.eid==null){
+        if (ReadCardManager.eid == null) {
             showToast("eid对象为空，请初始化sdk成功后再使用sdk功能。");
             return;
         }
@@ -65,6 +65,7 @@ public class ReadIDActivity extends BaseNfcActivity {
             tv_msg.setText("设备不支持NFC");
         }
     }
+
     private OnGetResultListener mResultListener = new OnGetResultListener() {
 
         @Override
@@ -81,8 +82,8 @@ public class ReadIDActivity extends BaseNfcActivity {
         }
 
         @Override
-        public void onFailed(int code) {
-            tv_msg.setText("读卡失败: " + code);
+        public void onFailed(int code, String msg) {
+            tv_msg.setText("读卡失败: " + code + msg);
         }
 
         @Override

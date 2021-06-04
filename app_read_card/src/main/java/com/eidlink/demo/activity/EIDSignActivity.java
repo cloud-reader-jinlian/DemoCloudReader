@@ -53,8 +53,8 @@ public class EIDSignActivity extends BaseActivity implements View.OnClickListene
         }
 
         @Override
-        public void onFailed(int code) {
-            tv_msg.setText("读卡失败: " + code + "   耗时 :" + endtime + "ms");
+        public void onFailed(int code, String msg) {
+            tv_msg.setText("读卡失败: " + code + msg + "   耗时 :" + endtime + "ms");
         }
 
         @Override

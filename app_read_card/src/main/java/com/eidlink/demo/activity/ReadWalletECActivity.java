@@ -18,8 +18,8 @@ import com.eidlink.idocr.sdk.listener.OnGetResultListener;
 public class ReadWalletECActivity extends BaseActivity {
 
     private TextView tv_msg;
-    private Button   okbtn;
-    private long     starttime, endtime;
+    private Button okbtn;
+    private long starttime, endtime;
     /**
      * DataToBeDisplayed  调起钱包是显示的文字(最多70个可见字符)
      */
@@ -44,11 +44,11 @@ public class ReadWalletECActivity extends BaseActivity {
                 /**
                  * 前端返电子证照方法
                  */
-                if(ReadCardManager.eid==null){
+                if (ReadCardManager.eid == null) {
                     showToast("eid对象为空，请初始化sdk成功后再使用sdk功能。");
                     return;
                 }
-                ReadCardManager.eid.readWalletEC("123456",DataToBeDisplayed, mResultListener);
+                ReadCardManager.eid.readWalletEC("123456", DataToBeDisplayed, mResultListener);
             }
         });
     }
@@ -61,9 +61,9 @@ public class ReadWalletECActivity extends BaseActivity {
         }
 
         @Override
-        public void onFailed(int code) {
+        public void onFailed(int code, String msg) {
             endtime = System.currentTimeMillis() - starttime;
-            tv_msg.setText("读卡失败: " + code);
+            tv_msg.setText("读卡失败: " + code + msg);
         }
 
         @Override

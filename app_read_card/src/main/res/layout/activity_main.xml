@@ -111,6 +111,15 @@
                 android:gravity="center"
                 android:text="时延测试" />
 
+            <Button
+                android:id="@+id/bt_setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="设置" />
+
+
             <TextView
                 android:id="@+id/tv_version"
                 android:layout_width="match_parent"

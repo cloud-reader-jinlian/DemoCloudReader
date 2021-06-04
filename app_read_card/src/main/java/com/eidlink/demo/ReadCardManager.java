@@ -11,6 +11,7 @@ import com.eidlink.idocr.sdk.listener.OnEidInitListener;
 
 public class ReadCardManager {
     public static EidLinkSE eid;
+    public static String tag_need_add_picture = "tag_need_add_picture";
     /**
      * 生产环境配置：
      * appid:请填写生产环境分配的appid
@@ -42,7 +43,7 @@ public class ReadCardManager {
             @Override
             public void onSuccess() {
                 //setGetDataFromSdk:启用前端返数据功能,目前仅支持二代证读取.如需使用前端返数据功能，需联系我司开通使用授权。
-//                eid.setGetDataFromSdk(true);
+               eid.setGetDataFromSdk(true);
                 //setReadCount:设置sdk自动重读次数为2次。
                 eid.setReadCount(2);
                 listener.onSuccess();

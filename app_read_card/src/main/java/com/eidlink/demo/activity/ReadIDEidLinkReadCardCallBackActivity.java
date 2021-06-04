@@ -53,8 +53,8 @@ public class ReadIDEidLinkReadCardCallBackActivity extends BaseNfcActivity {
         }
 
         @Override
-        public void onFailed(int code) {
-            tv_msg.setText("读卡失败: " + code);
+        public void onFailed(int code,String msg) {
+            tv_msg.setText("读卡失败: " + code + msg);
             closeNfc();
         }
 

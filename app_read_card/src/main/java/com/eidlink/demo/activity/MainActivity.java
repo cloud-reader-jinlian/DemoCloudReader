@@ -17,11 +17,14 @@ import com.eidlink.idocr.sdk.listener.OnEidInitListener;
 import com.eidlink.idocr.sdk.listener.OnGetDelayListener;
 import com.eidlink.idocr.sdk.listener.OnGetEidStatusListener;
 import com.eidlink.idocr.sdk.util.DelayUtil;
+
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private EditText et_message;
     private TextView tv_version;
-    private Button   bt_clear, bt_save, bt_get_imei, bt_delay, bt_card, bt_travel, bt_webEC, bt_eid_fun, bt_eid_callback_read,bt_bluetooth;
-    private boolean           initEidSuccess;
+    private Button bt_clear, bt_save, bt_get_imei, bt_delay, bt_card, bt_travel, bt_webEC, bt_eid_fun, bt_eid_callback_read, bt_bluetooth;
+    private boolean initEidSuccess;
+    private Button bt_setting;
+
     private OnEidInitListener mInitListener = new OnEidInitListener() {
         @Override
         public void onSuccess() {
@@ -55,6 +58,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         bt_save = findViewById(R.id.bt_save);
         bt_clear = findViewById(R.id.bt_clear);
         bt_bluetooth = findViewById(R.id.bt_bluetooth);
+        bt_setting = findViewById(R.id.bt_setting);
+        bt_setting.setOnClickListener(this);
         bt_card.setOnClickListener(this);
         bt_travel.setOnClickListener(this);
         bt_webEC.setOnClickListener(this);
@@ -92,13 +97,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void initEid() {
         initEidSuccess = false;
         ReadCardManager.initEid(getApplicationContext(), mInitListener);
+        ReadCardManager.eid.setReadPicture(false);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.bt_setting:
+                startActivityNoFinish(SettingActivity.class);
+                break;
             case R.id.bt_save:
-                if (initEidSuccess){
+                if (initEidSuccess) {
                     showToast("请清除账号后再重新配置账号");
                     return;
                 }
@@ -113,7 +122,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.bt_clear:
                 SpUtils.clear(getApplicationContext());
                 ReadCardManager.appid = null;
-                initEidSuccess=false;
+                initEidSuccess = false;
                 et_message.setText("");
                 break;
             case R.id.bt_delay:
@@ -158,12 +167,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 startActivityNoFinish(ReadIDEidLinkReadCardCallBackActivity.class);
                 break;
             case R.id.bt_bluetooth:
-                Intent intent =  new Intent(this, BlueToothActivity.class);
+                Intent intent = new Intent(this, BlueToothActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("appid",ReadCardManager.appid);
-                intent.putExtra("ip",ReadCardManager.ip);
-                intent.putExtra("port",ReadCardManager.port+"");
-                intent.putExtra("envCode",ReadCardManager.envCode+"");
+                intent.putExtra("appid", ReadCardManager.appid);
+                intent.putExtra("ip", ReadCardManager.ip);
+                intent.putExtra("port", ReadCardManager.port + "");
+                intent.putExtra("envCode", ReadCardManager.envCode + "");
                 startActivity(intent);
                 break;
             case R.id.bt_webEC:

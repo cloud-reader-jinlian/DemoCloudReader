@@ -19,7 +19,7 @@ import com.eidlink.idocr.sdk.listener.OnGetResultListener;
 public class EidFunActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText tv_msg;
-    private Button   bt_eid_check, bt_eid_open, bt_appeidcode, bt_eid_check_auth,bt_eidsign;
+    private Button bt_eid_check, bt_eid_open, bt_appeidcode, bt_eid_check_auth, bt_eidsign;
 
     @Override
     protected int getViewId() {
@@ -76,8 +76,8 @@ public class EidFunActivity extends BaseActivity implements View.OnClickListener
                 }
 
                 @Override
-                public void onFailed(int code) {
-                    tv_msg.setText("获取失败,错误码:" + code);
+                public void onFailed(int code, String msg) {
+                    tv_msg.setText("获取失败,错误码:" + code + msg);
                 }
             });
         } else if (v.getId() == R.id.bt_eid_check_auth) {
@@ -92,7 +92,7 @@ public class EidFunActivity extends BaseActivity implements View.OnClickListener
                     tv_msg.setText(code);
                 }
             });
-        }else if (v.getId()==R.id.bt_eidsign){
+        } else if (v.getId() == R.id.bt_eidsign) {
             showProgressDialog("检测eID是否开通,请稍候...");
             ReadCardManager.eid.eidIsOpen(this, new OnGetEidStatusListener() {
                 @Override
