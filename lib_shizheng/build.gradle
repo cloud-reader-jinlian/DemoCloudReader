@@ -17,6 +17,6 @@ android {
 }
 
 dependencies {
-    implementation files('libs/IDOCR.PubSdk.Android.Std.NFC.Release-10.2.7.jar')
-//    implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.7.1'
+    //     implementation files('libs/IDOCR.PubSdk.Android.Std.NFC.Release-10.2.8.jar')
+  implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.8'
 }

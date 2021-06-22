@@ -48,7 +48,7 @@ public class ReadWalletECActivity extends BaseActivity {
                     showToast("eid对象为空，请初始化sdk成功后再使用sdk功能。");
                     return;
                 }
-                ReadCardManager.eid.readWalletEC("123456", DataToBeDisplayed, mResultListener);
+                ReadCardManager.eid.readWalletEC(DataToBeDisplayed, mResultListener);
             }
         });
     }
