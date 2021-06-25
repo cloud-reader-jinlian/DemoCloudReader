@@ -27,10 +27,10 @@ public class ReadCardManager {
      * 端口：9989
      * envCode：26814
      */
-    public static  String appid;
-    public static String ip      = "testeidcloudread.eidlink.com";
-    public static int    envCode = 26814;
-    public static int    port    = 9989;
+    public static String appid;
+    public static String ip = "testeidcloudread.eidlink.com";
+    public static int envCode = 26814;
+    public static int port = 9989;
 
     /**
      * SDK初始化
@@ -43,9 +43,7 @@ public class ReadCardManager {
             @Override
             public void onSuccess() {
                 //setGetDataFromSdk:启用前端返数据功能,目前仅支持二代证读取.如需使用前端返数据功能，需联系我司开通使用授权。
-               eid.setGetDataFromSdk(true);
-                //setReadCount:设置sdk自动重读次数为2次。
-                eid.setReadCount(2);
+                // eid.setGetDataFromSdk(true);
                 listener.onSuccess();
             }
 
