@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.eidlink.bluetooth.activity.BlueToothActivity;
+//import com.eidlink.bluetooth.activity.BlueToothActivity;
 import com.eidlink.demo.R;
 import com.eidlink.demo.ReadCardManager;
 import com.eidlink.demo.activity.base.BaseActivity;
@@ -167,13 +167,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 startActivityNoFinish(ReadIDEidLinkReadCardCallBackActivity.class);
                 break;
             case R.id.bt_bluetooth:
-                Intent intent = new Intent(this, BlueToothActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("appid", ReadCardManager.appid);
-                intent.putExtra("ip", ReadCardManager.ip);
-                intent.putExtra("port", ReadCardManager.port + "");
-                intent.putExtra("envCode", ReadCardManager.envCode + "");
-                startActivity(intent);
+//                Intent intent = new Intent(this, BlueToothActivity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                intent.putExtra("appid", ReadCardManager.appid);
+//                intent.putExtra("ip", ReadCardManager.ip);
+//                intent.putExtra("port", ReadCardManager.port + "");
+//                intent.putExtra("envCode", ReadCardManager.envCode + "");
+//                startActivity(intent);
                 break;
             case R.id.bt_webEC:
                 if (!initEidSuccess) {

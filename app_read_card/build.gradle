@@ -27,27 +27,25 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'pub.devrel:easypermissions:3.0.0'
     /**
-     * eid-travel-bc-v1.0.0.jar：
-     * 旅行证件拓展库，如需读取旅行证件，需要集成此jar包。 不读取旅行证件可不集成。
-     * eid-mobile-sdk-v3.1.15.5.jar：
-     * 如使用eid认证功能，获取华为钱包eid电子证照功能，需要集成此jar包。
+     *  bcprov-jdk15on-1.56.jar：
+     *  旅行证件拓展库，如需读取旅行证件，需要集成此jar包。 不读取旅行证件可不集成。
+     *  eid-mobile-sdk-v3.1.15.5.jar：
+     *  如使用eid认证功能，获取华为钱包eid电子证照功能，需要集成此jar包。
      */
-    implementation files('libs/eid-travel-bc-v1.0.0.jar')
+    implementation files('libs/bcprov-jdk15on-1.56.jar')
     implementation files('libs/eid-mobile-sdk-v3.1.15.5.jar')
-
     /**
-     * 1、使用云识读远程库，方便客户集成：com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.4。
-     * 2、也可以选择使用云识读本地jar包和动态库：lib_shizheng。
+     *  1、使用云识读远程库，方便客户集成：com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.9。
+     *  2、也可以选择使用云识读本地jar包和动态库：lib_shizheng。
      */
-       implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.8'
-
-//   implementation files('libs/IDOCR.PubSdk.Android.Std.NFC.Release-10.2.8.jar')
-//   implementation project(':lib_shizheng')
-
+    // implementation 'com.github.cloud-reader-jinlian:cloudreader-identity:v10.2.9'
+     implementation files('libs/IDOCR.PubSdk.Android.Std.NFC.Release-10.2.9.jar')
+      implementation project(':lib_shizheng')
     /**
-     * 二代证电子照片解码库
+     *  二代证电子照片解码库
      */
     implementation 'com.github.cloud-reader-jinlian:cloudreader-picture:v1.0.0'
-    implementation project(path: ':lib_cloud_reader_bt')
+//    implementation project(path: ':lib_cloud_reader_bt')
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
 }
