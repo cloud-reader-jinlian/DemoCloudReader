@@ -34,9 +34,9 @@ public class ReadTravelActivity extends BaseNfcActivity {
         et_validity = this.findViewById(R.id.et_validity);
         tb = this.findViewById(R.id.tb);
         initClick();
-        et_num.setText("E47378331");
-        et_birth.setText("830402");
-        et_validity.setText("250329");
+        et_num.setText("");
+        et_birth.setText("");
+        et_validity.setText("");
     }
 
     @Override
